@@ -54,12 +54,25 @@ template <class T>
 T ESTRUCTURAS::PILA<T>::pop() {
 	// Remueve un dato de la pila.
 	if(!this->estaVacia()) {
+		// Dato que se recupera al eliminar el nodo.
 		T dato;
+
+		// Nodo a eliminar.
 		NodoSimple<T>* nodoRemovido = this->punteroSuperior;
+
+		// El puntero superior se mueve al siguiente nodo.
 		this->punteroSuperior = this->punteroSuperior->siguiente;
+
+		// Dato recuperado.
 		dato = nodoRemovido->dato;
+
+		// Liberamos la memoria usada.
 		delete nodoRemovido;
+
+		// Disminuye la cantida de datos en la pila.
 		this->cantidadDatos--;
+
+		// Retornamos el dato.
 		return dato;
 	}
 
