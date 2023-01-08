@@ -1,24 +1,41 @@
 #include <iostream>
-#include "ds/DS.h"
 #include "ds/pila.cpp"
+#include "ds/cola.cpp"
 
-int main(void) {
-	std::cout<<"Pila"<<std::endl;
-	ESTRUCTURAS::PILA<int> pila = ESTRUCTURAS::PILA<int>(10);
-	pila.push(3);
-	pila.push(5);
-	pila.push(9);
 
-	pila.debug();
-	int dato = pila.pop();
+int main() {
+    int i;
 
-	// Deberia de ser 9
-	std::cout<<dato<<std::endl;
+    std::cout<<"Pila"<<std::endl;
+    ESTRUCTURA::PILA<int> pila = ESTRUCTURA::PILA<int>(10);
 
-	pila.debug();
+    i = 0;
+    while(i < pila.getLimiteDatos()) {
+        pila.push(i);
+        i++;
+    }
 
-	pila.dump();
-	pila.debug();
+    pila.debug();
 
-	return 1;
-}
+    while(!pila.estaVacia()) {
+        std::cout<<pila.pop()<<", ";
+    }
+    std::cout<<std::endl;
+
+    std::cout<<"Cola"<<std::endl;
+    ESTRUCTURA::COLA<int> cola = ESTRUCTURA::COLA<int>(10);
+
+    i = 0;
+    while(i < cola.getLimiteDatos()) {
+        cola.push(i);
+        i++;
+    }
+
+    cola.debug();
+
+    while(!cola.estaVacia()) {
+        std::cout<<cola.pop()<<", ";
+    }
+
+    return 1;
+};
