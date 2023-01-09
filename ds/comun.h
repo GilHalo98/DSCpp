@@ -1,9 +1,10 @@
 #pragma once
 
+// Manejo de excepciones.
+#include <stdexcept>
 
 // Manejor de variables booleanas.
 #include <stdbool.h>
-
 
 // Incluye los punteros para las estructuras de datos.
 #include "nodos.cpp"
