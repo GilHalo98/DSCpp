@@ -121,6 +121,9 @@ namespace ESTRUCTURA {
             // de acceso de arreglos.
             T operator [] (int);
 
+            // Intercambia dos datos de posicion.
+            void intercambiarDatos(int, int);
+
             // Retorna el puntero de inicio de la estructura.
             nodoSimple<T>* getPunteroInicio(void);
 
@@ -161,6 +164,9 @@ namespace ESTRUCTURA {
             // Accede a un dato en un index dado con el operador
             // de acceso de arreglos.
             T operator [] (int);
+
+            // Intercambia dos datos de posicion.
+            void intercambiarDatos(int, int);
 
             // Retorna el puntero de inicio de la estructura.
             nodoDoble<T>* getPunteroInicio(void);
@@ -217,4 +223,4 @@ namespace ESTRUCTURA {
             // Busca el elemento menor de la estructura.
             nodoBinario<T>* buscarMenorElemento(nodoBinario<T>*);
     };
-}
+};
