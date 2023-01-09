@@ -92,15 +92,14 @@ void ESTRUCTURA::COLA<T>::debug(void) {
     if(!this->estaVacia()) {
         nodoSimple<T>* punteroAux = this->punteroFrente;
 
-        while(punteroAux != NULL) {
+        while(punteroAux->siguiente != NULL) {
             std::cout<<punteroAux->dato<<", ";
             punteroAux = punteroAux->siguiente;
         }
-        std::cout<<std::endl;
+        std::cout<<punteroAux->dato<<std::endl;
     }
     // Sino se imprime que esta vacia.
-    else
-    {
+    else {
         std::cout<<"Vacia!"<<std::endl;
     }
 };
