@@ -99,10 +99,12 @@ bool ESTRUCTURA::ARBOL_BINARIO<T>::esHoja(nodoBinario<T>* punteroAux) {
     return false;
 };
 
-// Permite eliminar datos similar a una estructura de datos lineal.
 template <class T>
 T ESTRUCTURA::ARBOL_BINARIO<T>::pop(bool eliminar_mayor) {
     if(!this->estaVacia()) {
+        // Permite eliminar datos similar a una estructura de datos lineal
+        // por default el orden de eliminacion es decendente.
+
         // Instanciamos el puntero al nodo a remover.
         nodoBinario<T>* punteroNodoRemovido = this->punteroRaiz;
 
