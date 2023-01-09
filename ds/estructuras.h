@@ -5,7 +5,6 @@
 #include "comun.h"
 
 namespace ESTRUCTURA {
-    template <class T>
     class EstructuraBase {
         public:
             // Constructor de la estructura, por default la cantidad
@@ -38,7 +37,7 @@ namespace ESTRUCTURA {
     };
 
     template <class T>
-    class PILA : public EstructuraBase<T> {
+    class PILA : public EstructuraBase {
         public:
             // Constructor de clase.
             PILA(int=0);
@@ -59,15 +58,15 @@ namespace ESTRUCTURA {
             // Imprime en consola los datos de la estructura.
             void debug(void);
 
+        protected:
+
         private:
             // Puntero a la parte superior de la estructura.
             nodoSimple<T>* punteroSuperior;
-
-        protected:
     };
 
     template <class T>
-    class COLA : public EstructuraBase<T> {
+    class COLA : public EstructuraBase {
         public:
             // Contructor de clase.
             COLA(int=0);
@@ -87,14 +86,135 @@ namespace ESTRUCTURA {
             // Vacia la estructura.
             void dump(void);
 
+        protected:
+
         private:
             // Puntero a la parte frontal de la estructura.
             nodoSimple<T>* punteroFrente = NULL;
 
             // Puntero a la parte tracera de la estructura.
             nodoSimple<T>* punteroCola = NULL;
-
-        protected:
     };
 
+    template <class T>
+    class LISTA : public EstructuraBase {
+        public:
+            // Constructor de clase de la estructura.
+            LISTA(int=0);
+
+            // Destructor de clase de la estructura.
+            ~LISTA(void);
+
+            // Agrega un elemento en el index dado.
+            void push(T, int=0);
+
+            // Elimina un elemento en el index dado.
+            T pop(int=0);
+
+            // Imprime los datos almacenados en la estructura.
+            void debug(void);
+
+            // Vacia la estructura.
+            void dump(void);
+
+            // Accede a un dato en un index dado con el operador
+            // de acceso de arreglos.
+            T operator [] (int);
+
+            // Retorna el puntero de inicio de la estructura.
+            nodoSimple<T>* getPunteroInicio(void);
+
+            // Retorna el puntero fin de la estructura.
+            nodoSimple<T>* getPunteroFin(void);
+
+        protected:
+
+        private:
+            // Puntero de inicio de la estructura.
+            nodoSimple<T>* punteroInicio;
+
+            // Puntero fin de la estructura.
+            nodoSimple<T>* punteroFin;
+    };
+
+    template <class T>
+    class LISTA_DOBLE : public EstructuraBase {
+        public:
+            // Constructor de clase.
+            LISTA_DOBLE(int=0);
+
+            // Destructor de clase.
+            ~LISTA_DOBLE(void);
+
+            // Agrega un elemento en el index dado.
+            void push(T, int=0);
+
+            // Elimina un elemento en el index dado.
+            T pop(int=0);
+
+            // Imprime los datos almacenados en la estructura.
+            void debug(void);
+
+            // Vacia la estructura.
+            void dump(void);
+
+            // Accede a un dato en un index dado con el operador
+            // de acceso de arreglos.
+            T operator [] (int);
+
+            // Retorna el puntero de inicio de la estructura.
+            nodoDoble<T>* getPunteroInicio(void);
+
+            // Retorna el puntero fin de la estructura.
+            nodoDoble<T>* getPunteroFin(void);
+
+        protected:
+
+        private:
+            // Puntero de inicion de la estructura.
+            nodoDoble<T>* punteroInicio;
+
+            // Puntero de fin de la estructura.
+            nodoDoble<T>* punteroFin;
+    };
+
+    template <class T>
+    class ARBOL_BINARIO : public EstructuraBase {
+        public:
+            // Constructor de clase.
+            ARBOL_BINARIO(int=0);
+
+            // Destructor de clase.
+            ~ARBOL_BINARIO(void);
+
+            // Agrega un elemento a la estructura.
+            void push(T);
+
+            // Remueve en orden un dato de la estructura.
+            T pop(bool=true);
+
+            // Vacia la estructura.
+            void dump(void);
+
+            // Retorna el puntero raiz de la estructura.
+            nodoBinario<T>* getPunteroRaiz(void);
+
+        protected:
+            // Puntero al elemento raiz de la estructura.
+            nodoBinario<T>* punteroRaiz;
+
+        private:
+            // Busca una rama de manera recursiva en la que
+            // se agregara un elemento.
+            nodoBinario<T>* buscarRama(nodoBinario<T>*, nodoBinario<T>*);
+
+            // Indica si un nodo es hoja.
+            bool esHoja(nodoBinario<T>*);
+
+            // Busca el elemento mayor de la estructura.
+            nodoBinario<T>* buscarMayorElemento(nodoBinario<T>*);
+
+            // Busca el elemento menor de la estructura.
+            nodoBinario<T>* buscarMenorElemento(nodoBinario<T>*);
+    };
 }
