@@ -3,7 +3,6 @@
  * estos nodos estan contruidos por templates.
 */
 
-
 // Nodo simple, contiene un puntero.
 template <class T>
 struct nodoSimple {
@@ -13,7 +12,6 @@ struct nodoSimple {
     // Punteros usados para estructurar nodos.
     nodoSimple* siguiente = NULL;
 };
-
 
 // Nodo para los arboles binarios.
 template <class T>
@@ -26,7 +24,6 @@ struct nodoBinario {
     nodoBinario* hijoDerecha = NULL;
     nodoBinario* hijoIzquierda = NULL;
 };
-
 
 // Nodo doble, contiene dos punteros.
 template <class T>
