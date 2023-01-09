@@ -1,16 +1,13 @@
 #include "comun.h"
 
-template <class T>
-ESTRUCTURA::EstructuraBase<T>::EstructuraBase(int limiteDatos) {
+ESTRUCTURA::EstructuraBase::EstructuraBase(int limiteDatos) {
     this->limiteDatos = limiteDatos;
     this->cantidadDatos = 0;
 };
 
-template <class T>
-ESTRUCTURA::EstructuraBase<T>::~EstructuraBase(void) {};
+ESTRUCTURA::EstructuraBase::~EstructuraBase(void) {};
 
-template <class T>
-bool ESTRUCTURA::EstructuraBase<T>::estaLlena(void) {
+bool ESTRUCTURA::EstructuraBase::estaLlena(void) {
     // Retorna verdadero si la estructura esta al limite de
     // datos permitidos.
     if(this->limiteDatos < 0) {
@@ -24,8 +21,7 @@ bool ESTRUCTURA::EstructuraBase<T>::estaLlena(void) {
     return true;
 };
 
-template <class T>
-bool ESTRUCTURA::EstructuraBase<T>::estaVacia(void) {
+bool ESTRUCTURA::EstructuraBase::estaVacia(void) {
     // Retorna verdadero si la estructura se encuentra vacia.
     if(this->cantidadDatos <= 0) {
         return true;
@@ -34,14 +30,12 @@ bool ESTRUCTURA::EstructuraBase<T>::estaVacia(void) {
     return false;
 };
 
-template <class T>
-int ESTRUCTURA::EstructuraBase<T>::getCantidadDatos(void) {
+int ESTRUCTURA::EstructuraBase::getCantidadDatos(void) {
     // Retorna la cantidad de datos en la estructura.
     return this->cantidadDatos;
 };
 
-template <class T>
-int ESTRUCTURA::EstructuraBase<T>::getLimiteDatos(void) {
+int ESTRUCTURA::EstructuraBase::getLimiteDatos(void) {
     // Retorna la cantidad de datos maxima.
     return this->limiteDatos;
 };
