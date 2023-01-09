@@ -10,3 +10,5 @@
 #include "nodos.cpp"
 #include "estructuras.h"
 #include "estructuraBase.cpp"
+#include "recorridos.h"
+#include "ordenamiento.h"
