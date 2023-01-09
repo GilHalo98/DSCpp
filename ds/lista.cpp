@@ -219,6 +219,42 @@ T ESTRUCTURA::LISTA<T>::operator [] (int index) {
 };
 
 template <class T>
+void ESTRUCTURA::LISTA<T>::intercambiarDatos(int indexA, int indexB) {
+    // Interca mbia los datos entre nodos.
+
+    // Delcaramos los punteros auxiliar a usar.
+    nodoSimple<T>* punteroA = this->punteroInicio;
+    nodoSimple<T>* punteroB = this->punteroInicio;
+
+    // Index del nodo actual.
+    int index = 0;
+
+    // Movemos el puntero axiliar A.
+    while(index < indexA) {
+        punteroA = punteroA->siguiente;
+        index++;
+    }
+
+    // Reiniciamos el index.
+    index = 0;
+
+    // Movemos el puntero axiliar B.
+    while(index < indexB) {
+        punteroB = punteroB->siguiente;
+        index++;
+    }
+
+    // Guardamos el dato en puntero a en una variable auxiliar.
+    T datoAux = punteroA->dato;
+
+    // El dato en puntero a toma el dato en puntero b.
+    punteroA->dato = punteroB->dato;
+
+    // El dato en puntero b cambia al dato en la variable auxiliar.
+    punteroB->dato = datoAux;
+};
+
+template <class T>
 void ESTRUCTURA::LISTA<T>::debug() {
     // Si la estructura no esta vacia, se imprime
     // su contendio.
