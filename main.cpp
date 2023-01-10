@@ -4,6 +4,8 @@
 #include "ds/lista.cpp"
 #include "ds/listaDoble.cpp"
 #include "ds/arbolBinario.cpp"
+#include "ds/recorridosArbolBinario.cpp"
+#include "ds/bubblesort.cpp"
 
 
 int main() {
@@ -30,7 +32,7 @@ int main() {
 
     i = 0;
     while(i < cola.getLimiteDatos()) {
-        cola.push(i);
+        cola.push(0 + (rand() % 200));
         i++;
     }
 
@@ -46,10 +48,14 @@ int main() {
 
     i = 0;
     while(i < lista.getLimiteDatos()) {
-        lista.push(i);
+        lista.push(0 + (rand() % 200));
         i++;
     }
 
+    lista.debug();
+
+    std::cout<<"Ordenamientos de listas"<<std::endl;
+    ORDENAMIENTO::bubbleSort(&lista);
     lista.debug();
 
     while(!lista.estaVacia()) {
@@ -62,7 +68,7 @@ int main() {
 
     i = 0;
     while(i < listaDoble.getLimiteDatos()) {
-        listaDoble.push(i);
+        listaDoble.push(0 + (rand() % 200));
         i++;
     }
 
@@ -78,9 +84,16 @@ int main() {
 
     i = 0;
     while(i < arbolBinario.getLimiteDatos()) {
-        arbolBinario.push(i);
+        arbolBinario.push(0 + (rand() % 200));
         i++;
     }
+
+    std::cout<<"Recorridos de Arbol Binario"<<std::endl;
+    ESTRUCTURA::COLA<int> colaRecorrido = RECORRIDOS::recorridoArbolBinario(
+        arbolBinario,
+        RECORRIDOS::TIPOS::INORDEN
+    );
+    colaRecorrido.debug();
 
     while(!arbolBinario.estaVacia()) {
         std::cout<<arbolBinario.pop()<<", ";
