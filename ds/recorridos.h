@@ -1,8 +1,12 @@
-// Deficnicion de macros.
 #pragma once
-
-// Librerias a incluir
+#define recorridosdefinidos
 #include "comun.h"
+#ifndef coladefinida
+#include "cola.h"
+#endif
+#ifndef arbolbinariodefinido
+#include "arbolBinario.h"
+#endif
 
 namespace RECORRIDOS {
     enum TIPOS {
@@ -12,17 +16,19 @@ namespace RECORRIDOS {
     };
 
     template <class T>
-    ESTRUCTURA::COLA<T> recorridoArbolBinario(
-        ESTRUCTURA::ARBOL_BINARIO<T>,
+    COLA<T> recorridoArbolBinario(
+        ARBOL_BINARIO<T>,
         TIPOS
     );
 
     template <class T>
-    void preorden(nodoBinario<T>*, ESTRUCTURA::COLA<T>*);
+    void preorden(nodoBinario<T>*, COLA<T>*);
 
     template <class T>
-    void postorden(nodoBinario<T>*, ESTRUCTURA::COLA<T>*);
+    void postorden(nodoBinario<T>*, COLA<T>*);
 
     template <class T>
-    void inorden(nodoBinario<T>*, ESTRUCTURA::COLA<T>*);
+    void inorden(nodoBinario<T>*, COLA<T>*);
 };
+
+#include "recorridos/recorridosArbolBinario.cpp"
